@@ -22,5 +22,9 @@ Ubuntu-Lab-Server fully installed.
 
 Adapter 1 automatically attached to NAT.
 
-Successfully install OpenSSH for future secure remote access, encrypted communications and authentication.
+Successfully installed OpenSSH for future secure remote access, encrypted communications and authentication.
+
+Used 'ip a' to confirm device IP address and confirm network connectivity.
+Used 'ping 127.0.0.1' to ping loopback address.
+Used 'ping -c 4 google.com' to ping google.com URL 4 times to test external connectivity.
 
