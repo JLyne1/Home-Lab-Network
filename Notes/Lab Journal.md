@@ -22,3 +22,5 @@ Ubuntu-Lab-Server fully installed.
 
 Adapter 1 automatically attached to NAT.
 
+Successfully install OpenSSH for future secure remote access, encrypted communications and authentication.
+
