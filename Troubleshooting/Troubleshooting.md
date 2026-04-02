@@ -1,11 +1,12 @@
 \# Day 2:
-Issue: 
-\- VM not resizing in full screen (VirtualBox)
+Issue 1:
+- VM not resizing in full screen (VirtualBox)
 Symptoms:
-\- Fullscreen mode enabled but display not resizing
+- Fullscreen mode enabled but display not resizing
 Cause:
-\- Guest Additions not installed on client VM
+- Guest Additions not installed on client VM
 Fix:
-\- Installed VirtualBox Guest Additions and rebooted
+- Installed VirtualBox Guest Additions and rebooted
 Result:
-\- Fullscreen auto-resize working correctly
+- Fullscreen auto-resize working correctly
+
