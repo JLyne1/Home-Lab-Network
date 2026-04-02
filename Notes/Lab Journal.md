@@ -38,4 +38,12 @@ Disk: 25GB, dynamically allocated.
 
 Ubuntu-Lab-Server fully installed.
 Adapter 1 automatically attached to NAT.
+
+Discovered issue with VM not re-sizing to full screen - added notes to Issue 1 in Troubleshooting.md.
 Successfully installed OpenSSH Client for future secure remote access, encrypted communications and authentication.
+Used 'ip a' to confirm device IP address and confirm network connectivity.
+Used 'ping 127.0.0.1' to ping loopback address.
+Used 'ping -c 4 google.com' to ping google.com URL 4 times to test external connectivity.
+
+In Settings -> Network for both VMs - Changed Adapter 1 from NAT to Internal Network.
+Established lab-net internal network.
