@@ -99,3 +99,13 @@ From Server, successfully ran a ping to Client's new IP address.
 
 
 
+Entered /etc/hosts/ of both VMs and added the new IP addresses with associated host names.
+
+Successfully pinged Client VM from Server VM using its host name.
+
+Successfully pinged Server VM from Client VM using its host name.
+
+
+
+
+
