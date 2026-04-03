@@ -69,9 +69,33 @@ Ran 'sudo netplan apply' to apply changes to IP.
 Error message appeared when trying to apply changes to YAML file - See Issue 2 in Troubleshooting.md.
 
 Ran 'sudo chmod 600' to change file permissions, enabling changes in YAML file to be applied.
-Ran 'sudo netplan apply' successfully.
+'sudo netplan apply' ran successfully.
 
 Used 'ip a' to confirm new IP address of 192.168.10.10/24.
+
+
+
+Logged onto Client and ran 'sudo chmod 600' to change file permissions, enabling changes in YAML file to be applied.
+
+Entered the YAML file in the etc/netplan/ directory.
+
+Changed renderer from NetworkManager to networkd.
+
+Disabled DHCP.
+
+Assigned the Client VM with IP address 192.168.10.20/24.
+
+Ran 'sudo netplan apply' to apply changes to IP.
+
+'sudo netplan apply' ran successfully.
+
+Used 'ip a' to confirm new IP address of 192.168.10.20/24.
+
+
+
+From Client, successfully ran a ping to Server's new IP address.
+
+From Server, successfully ran a ping to Client's new IP address.
 
 
 
