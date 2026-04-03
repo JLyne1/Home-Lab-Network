@@ -36,14 +36,42 @@ RAM: 4GB.
 CPU: 4 vCPU cores.
 Disk: 25GB, dynamically allocated.
 
-Ubuntu-Lab-Server fully installed.
+
+
+Ubuntu-Lab-Client fully installed.
 Adapter 1 automatically attached to NAT.
 
-Discovered issue with VM not re-sizing to full screen - added notes to Issue 1 in Troubleshooting.md.
+Discovered issue with VM not re-sizing to full screen - See Issue 1 in Troubleshooting.md.
 Successfully installed OpenSSH Client for future secure remote access, encrypted communications and authentication.
 Used 'ip a' to confirm device IP address and confirm network connectivity.
 Used 'ping 127.0.0.1' to ping loopback address.
 Used 'ping -c 4 google.com' to ping google.com URL 4 times to test external connectivity.
 
+
+
 In Settings -> Network for both VMs - Changed Adapter 1 from NAT to Internal Network.
 Established lab-net internal network.
+
+Logged into both VMs and network connection has failed - as expected with the change to internal network.
+
+
+
+Logged onto Server and entered the YAML file in the etc/netplan/ directory.
+
+Changed renderer from NetworkManager to networkd - networkd is more ideal for smaller, static configurations.
+
+Disabled DHCP to prevent DHCP attempting to assign an IP, and risking duplicate IPs.
+
+Assigned the Server VM with IP address 192.168.10.10/24.
+
+Ran 'sudo netplan apply' to apply changes to IP.
+
+Error message appeared when trying to apply changes to YAML file - See Issue 2 in Troubleshooting.md.
+
+Ran 'sudo chmod 600' to change file permissions, enabling changes in YAML file to be applied.
+Ran 'sudo netplan apply' successfully.
+
+Used 'ip a' to confirm new IP address of 192.168.10.10/24.
+
+
+
