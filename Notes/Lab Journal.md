@@ -105,6 +105,13 @@ Used 'ping -c 4 google.com' to ping google.com URL 4 times to test external conn
 
 
 
+* Added default route 192.168.10.1 as a simulated gateway to Client VM for testing.
+* Used modern Netplan route configuration instead of deprecated 'gateway4' notation.
+* Use 'ip route' to confirm 'default via 192.168.10.1' is returned.
+* Removed simulated gateway.
+
+
+
 
 
 
