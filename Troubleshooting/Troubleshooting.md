@@ -25,5 +25,3 @@ Fix:
 Result:
 * 'sudo netplan apply' now runs successfully and my static IP has been implemented.
 
-
-
