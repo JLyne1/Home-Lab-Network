@@ -1,7 +1,6 @@
 # Home-Lab-Network
 
-\# Day 0 (31/3/26):
-
+###### \# Day 0 (31/3/26):
 
 * Downloaded and installed VirtualBox and GitHub Desktop.
 * Downloaded and installed VirtualBox Extension Pack.
@@ -9,7 +8,9 @@
 
 
 
-\# Day 1 (1/4/26):
+
+
+###### \# Day 1 (1/4/26):
 
 * Downloaded Ubuntu v24.04.4 LTS .ISO file.
 * Created initial setup of new server VM that runs Ubuntu v24.04.4 LTS. (Ubuntu-Lab-Server)
@@ -28,7 +29,9 @@ Disk: 25GB, dynamically allocated.
 
 
 
-\# Day 2 (2/4/26):
+
+
+###### \# Day 2 (2/4/26):
 
 * Created initial setup of new VM that runs Ubuntu v24.04.4 LTS. (Ubuntu-Lab-Client)
 RAM: 4GB.
@@ -47,7 +50,7 @@ Used 'ping -c 4 google.com' to ping google.com URL 4 times to test external conn
 
 
 
-* In Settings -> Network for both VMs - Changed Adapter 1 from NAT to Internal Network.
+* In VirtualBox Settings -> Network for both VMs - Changed Adapter 1 from NAT to Internal Network.
 * Established lab-net internal network.
 * Logged into both VMs and network connection has failed - as expected with the change to internal network.
 
@@ -87,4 +90,24 @@ Used 'ping -c 4 google.com' to ping google.com URL 4 times to test external conn
 * Entered /etc/hosts/ of both VMs and added the new IP addresses with associated host names.
 * Successfully pinged Client VM from Server VM using its host name.
 * Successfully pinged Server VM from Client VM using its host name.
+
+
+
+
+
+###### \# Day 3 (27/4/26):
+
+* Used 'ip route' on both VMs, confirming they are both part of lab-net 192.168.10.0/24.
+* Used 'ping 192.168.10.99' from Client VM, which, as expected, resulted in all packets dropped and "Destination Host Unreachable" error.
+* Changed Client VM IP address to 192.168.20.20/24 to test subnet.
+* Used 'ping 192.168.10.10' from Client VM, which, as expected, resulted in "Network is unreachable" error.
+* Changed Client VM IP address back to 192.168.10.20/24.
+
+
+
+
+
+
+
+
 
