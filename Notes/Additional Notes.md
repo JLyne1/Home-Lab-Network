@@ -1,4 +1,8 @@
-\# Day 1 (1/4/26):
+# Additional Notes
+
+
+
+###### \# Day 1 (1/4/26):
 
 * sudo apt install openssh-server:
 sudo - Execute as administrator.
@@ -12,7 +16,7 @@ Confirms network interfaces on the system and their current status (UP or DOWN).
 
 
 
-\# Day 2 (2/4/26):
+###### \# Day 2 (2/4/26):
 
 * sudo chmod 600:
 chmod - Change access permissions. (CHange MODe).
