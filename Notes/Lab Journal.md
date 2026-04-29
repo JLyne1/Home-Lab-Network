@@ -112,3 +112,32 @@ Used 'ping -c 4 google.com' to ping google.com URL 4 times to test external conn
 * Use 'ip route' to confirm 'default via 192.168.10.1' is returned.
 * Removed simulated gateway.
 
+
+
+
+
+###### \# Day 4 (29/4/26):
+
+* Downloaded Netgate Installer v1.1.1 (pfSense) .ISO file.
+* Created initial setup of new router VM that runs pfSense. (lab-router)
+RAM: 2GB.
+CPU: 2 vCPU cores.
+Disk: 16GB, dynamically allocated.
+* Enabled Adapter 1 for lab-router - NAT (for WAN capabilities).
+* Enabled Adapter 2 for lab-router - Internal Network (lab-net for LAN capabilities).
+
+
+
+* Unable to confirm installation of pfSense as rebooting the VM returns me to the installation screen.
+* Dismounting the VM's ISO Image file prior to rebooting pfSense fixed the problem.
+
+
+
+* pfSense successfully installed on lab-router with LAN IP address 192.168.1.1/24.
+* Changed Server's IP address to 192.168.1.10. (Same subnet as router).
+* Changed Client's IP address to 192.168.1.20. (Same subnet as router).
+* Successfully pinged router from server.
+* Successfully pinged router from client.
+* Successfully pinged google.com from server.
+* Successfully pinged google.com from client.
+
