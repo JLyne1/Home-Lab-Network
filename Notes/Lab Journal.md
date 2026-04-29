@@ -15,14 +15,14 @@
 ###### \# Day 1 (1/4/26):
 
 * Downloaded Ubuntu v24.04.4 LTS .ISO file.
-* Created initial setup of new server VM that runs Ubuntu v24.04.4 LTS. (Ubuntu-Lab-Server)
+* Created initial setup of new server VM that runs Ubuntu v24.04.4 LTS. (ubuntu-lab-server)
 RAM: 4GB.
 CPU: 4 vCPU cores.
 Disk: 25GB, dynamically allocated.
 
 
 
-* Ubuntu-Lab-Server fully installed.
+* ubuntu-lab-server fully installed.
 * Adapter 1 automatically attached to NAT.
 * Successfully installed OpenSSH Server for future secure remote access, encrypted communications and authentication.
 * Used 'ip a' to confirm device IP address and confirm network connectivity.
@@ -35,14 +35,14 @@ Disk: 25GB, dynamically allocated.
 
 ###### \# Day 2 (2/4/26):
 
-* Created initial setup of new VM that runs Ubuntu v24.04.4 LTS. (Ubuntu-Lab-Client)
+* Created initial setup of new VM that runs Ubuntu v24.04.4 LTS. (ubuntu-lab-client)
 RAM: 4GB.
 CPU: 4 vCPU cores.
 Disk: 25GB, dynamically allocated.
 
 
 
-* Ubuntu-Lab-Client fully installed.
+* ubuntu-lab-client fully installed.
 * Adapter 1 automatically attached to NAT.
 * Discovered issue with VM not re-sizing to full screen - See Issue 1 in Troubleshooting.md.
 Successfully installed OpenSSH Client for future secure remote access, encrypted communications and authentication.
@@ -111,12 +111,4 @@ Used 'ping -c 4 google.com' to ping google.com URL 4 times to test external conn
 * Used modern Netplan route configuration instead of deprecated 'gateway4' notation.
 * Use 'ip route' to confirm 'default via 192.168.10.1' is returned.
 * Removed simulated gateway.
-
-
-
-
-
-
-
-
 
