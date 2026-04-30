@@ -119,7 +119,7 @@ Used 'ping -c 4 google.com' to ping google.com URL 4 times to test external conn
 ###### \# Day 4 (29/4/26):
 
 * Downloaded Netgate Installer v1.1.1 (pfSense) .ISO file.
-* Created initial setup of new router VM that runs pfSense. (lab-router)
+* Created initial setup of new router VM that runs pfSense. (pfsense-lab-router)
 RAM: 2GB.
 CPU: 2 vCPU cores.
 Disk: 16GB, dynamically allocated.
@@ -140,4 +140,10 @@ Disk: 16GB, dynamically allocated.
 * Successfully pinged router from client.
 * Successfully pinged google.com from server.
 * Successfully pinged google.com from client.
+
+
+
+* Completed general setup for pfsense-lab-router.
+* Assigned IP address pool as 192.168.1.100 - 192.168.1.199.
+* Downloaded pfsense-lab-router config XML file.
 
