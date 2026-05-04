@@ -1,5 +1,10 @@
-\# Day 2:
-Issue 1:
+# Troubleshooting
+
+
+
+##### \# Day 2:
+
+###### Issue 1:
 
 * VM not resizing in full screen (VirtualBox)
 * Symptoms:
@@ -20,7 +25,7 @@ Fullscreen auto-resize working correctly
 
 
 
-Issue 2:
+###### Issue 2:
 
 * Unable to run 'sudo netplan apply' to apply changes to YAML file.
 * Symptoms:
@@ -43,9 +48,9 @@ Run 'sudo chmod 600' command to change file permissions for the YAML file.
 
 
 
-\# Day 4
+##### \# Day 4
 
-Issue 1:
+###### Issue 1:
 
 * After installing pfSense onto its VM, rebooting the VM leads me back to the installation setup screen.
 * Symptoms:
