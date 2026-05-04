@@ -147,3 +147,13 @@ Disk: 16GB, dynamically allocated.
 * Assigned IP address pool as 192.168.1.100 - 192.168.1.199.
 * Downloaded pfsense-lab-router config XML file.
 
+
+
+###### \# Day 5 (4/5/26):
+
+* On Client VM, changed the Netplan YAML file to enable DHCP.
+* 'ip a' confirms dynamically assigned IP address of 192.168.1.100/24, from the DHCP address pool.clea
+* Reset VM and ran 'ip a' again - resulted in expected IP address of 192.168.1.100/24.
+* Used 'ping google.com' to confirm DNS is working via router.
+* Assigned a DHCP reservation IP address to Client VM of 192.168.1.20.
+
