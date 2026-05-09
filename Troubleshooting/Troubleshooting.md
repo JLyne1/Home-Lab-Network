@@ -30,7 +30,9 @@ Fullscreen auto-resize working correctly
 * Unable to run 'sudo netplan apply' to apply changes to YAML file.
 * Symptoms:
 
-Error message in Terminal: "Permissions for /etc/netplan/01-network-manager-all.yaml are too open. Netplan configuration should NOT be accessible by others." Unable to apply changes.
+Error message in Terminal: "Permissions for /etc/netplan/01-network-manager-all.yaml are too open. 
+Netplan configuration should NOT be accessible by others." 
+Unable to apply changes.
 
 * Cause:
 
@@ -59,7 +61,8 @@ Selecting 'Reboot' following pfSense installation leads me back to the pfSense i
 
 * Cause:
 
-Not removing the Netgate Installer ISO file from the VM's ISO Image file within VirtualBox. The VM will boot up the installer image each time it is rebooted.
+Not removing the Netgate Installer ISO file from the VM's ISO Image file within VirtualBox. 
+The VM will boot up the installer image each time it is rebooted.
 
 * Fix:
 
@@ -68,4 +71,60 @@ Unmounting the ISO Image File from the 'Devices' menu in VirtualBox, and then re
 * Result:
 
 pfSense VM boots up to the main pfSense home screen.
+
+
+
+
+
+##### \# Day 7
+
+###### Issue 1:
+
+* Attempted 'curl' command on client VM terminal but command could not be found.
+* Symptoms:
+
+After attempting 'curl google.com' in the client terminal, terminal responded with 'Command 'curl' could not be found'.
+
+* Cause:
+
+The 'curl' command did not come as default with my installation of Linux and must be installed first.
+
+* Fix:
+
+Used 'sudo apt update' and 'sudo apt upgrade' to download and install updates. 
+Used 'sudo apt install curl' to install curl functionality.
+
+* Result:
+
+Used 'curl -version' to verify installation. 
+Using 'curl google.com' now runs as expected, displaying the HTML information of google.com homepage in the terminal.
+
+
+
+###### Issue 2:
+
+* Attempted pinging google.com from client VM terminal but command would not resolve.
+* Symptoms:
+
+After attempting 'ping google.com' in the client terminal, terminal responded with 'Temporary failure in name resolution'.
+
+* Cause:
+
+Temporarily disabling 'Default Allow LAN to Any' rule in the firewall has stopped DNS from resolving. 
+
+* Fix:
+
+Pinging 192.168.1.1 does resolve, with no packet delivered. (As expected with Block ICMP rule).
+
+Created a new rule in firewall - 'Allow DNS', which enables traffic to TCP/UDP/53.
+
+* Result:
+
+Pinging google.com now resolves, with no packets delivered.
+
+Using 'curl google.com' returns the HTML file as expected.
+
+
+
+
 
