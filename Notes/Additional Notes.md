@@ -35,3 +35,17 @@ ls - List information about files.
 * pfSense config file:
 Diagnostics -> Backup \& Restore -> Download configuration as XML
 
+
+
+###### \# Day 7:
+
+* pfSense firewall rules access:
+Firewall -> Rules -> WAN / LAN
+
+* sudo apt update:
+Updates Ubuntu software packages.
+* sudo apt upgrade:
+Installs downloaded software packages.
+
+
+
