@@ -33,11 +33,25 @@
 
 ###### \# DNS
 
-* DNS Servers: 
+* DNS Servers:
 
 \- Primary: 1.1.1.1
 
 \- Secondary: 8.8.8.8
 
 * Resolver: 192.168.1.1 (pfsense-lab-router)
+
+
+
+###### \# Firewall Rules (LAN)
+
+1. Anti-Lockout (TCP/80, TCP/443)
+2. Allow DNS (TCP/UDP/53)
+3. Allow HTTPS (TCP/443)
+4. Allow HTTP (TCP/80)
+5. Block ICMP to Any (Temporary)
+6. Default Allow LAN IPv4 to Any (Disabled)
+7. Default Allow LAN IPv6 to Any (Disabled)
+
+
 
