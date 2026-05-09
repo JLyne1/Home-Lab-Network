@@ -46,7 +46,7 @@ Disk: 25GB, dynamically allocated.
 * Adapter 1 automatically attached to NAT.
 * Discovered issue with VM not re-sizing to full screen - See Day 2/Issue 1 in Troubleshooting.
 * Successfully installed OpenSSH Client for future secure remote access, encrypted communications and authentication.
-* Successfully epeated 'ip a' and ping tests from Day 1 for client.
+* Successfully repeated 'ip a' and ping tests from Day 1 for client.
 
 
 
@@ -154,4 +154,31 @@ Disk: 16GB, dynamically allocated.
 ###### \# Day 6 (5/5/26):
 
 * Updated README and Network Configuration files for easier readability.
+
+
+
+###### \# Day 7 (9/5/26):
+
+* Default Firewall rules for LAN:
+* Anti-Lockout Rule (Ports 80 and 443)
+* Default Allow LAN to Any
+* Default Allow LAN IPv6 to Any
+
+* Adding Block ICMP test rule to firewall:
+* Action: Block
+* Interface: LAN
+* Protocol: ICMP
+* Destination: Any
+
+* Pinged google.com from client - As expected, ping fails.
+* Unable to run 'curl google.com' - See Day 7/Issue 1 in Troubleshooting.
+* After installing curl functionality, used 'curl google.com' to confirm HTTP requests are working.
+
+
+
+* Created two new firewall rules - Allow HTTP (TCP/80) and Allow HTTPS (TCP/443).
+* Temporarily disabled Default Allow LAN to Any firewall rules.
+* Pinging google.com results in resolution failure - See Day 7/Issue 2 in Troubleshooting.
+* After creating a new Allow DNS (TCP/UDP/53) rule, ping now resolves as expected.
+* Using 'curl google.com' was successful, so HTTP/HTTPS traffic is flowing as expected.
 
