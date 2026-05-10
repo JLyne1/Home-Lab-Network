@@ -163,13 +163,11 @@ Disk: 16GB, dynamically allocated.
 * Anti-Lockout Rule (Ports 80 and 443)
 * Default Allow LAN to Any
 * Default Allow LAN IPv6 to Any
-
 * Adding Block ICMP test rule to firewall:
 * Action: Block
 * Interface: LAN
 * Protocol: ICMP
 * Destination: Any
-
 * Pinged google.com from client - As expected, ping fails.
 * Unable to run 'curl google.com' - See Day 7/Issue 1 in Troubleshooting.
 * After installing curl functionality, used 'curl google.com' to confirm HTTP requests are working.
@@ -181,4 +179,26 @@ Disk: 16GB, dynamically allocated.
 * Pinging google.com results in resolution failure - See Day 7/Issue 2 in Troubleshooting.
 * After creating a new Allow DNS (TCP/UDP/53) rule, ping now resolves as expected.
 * Using 'curl google.com' was successful, so HTTP/HTTPS traffic is flowing as expected.
+
+
+
+###### \# Day 8 (10/5/26):
+
+* Ran 'sudo apt update' and 'sudo apt upgrade' on server VM.
+* Ran 'sudo apt install apache2' to install Apache web server.
+* Ran 'systemctl status apache2' to verify Apache status - Active (running).
+* Ran 'sudo apt install curl' to install curl functionality.
+* Ran 'curl localhost' to display Apache server HTML output.
+
+
+
+* From client, Ran 'curl 192.168.1.10' to display server VM's Apache server HTML output.
+* In router, added firewall rule 'Allow Internal Traffic', intentionally allowing internal communication between LAN devices.
+* From client, ran 'http://192.168.1.10', and was able to connect to the server's Apache Default Page.
+
+* From server, ran 'sudo nano /var/www/html/index.html' to enter the Apache Default Page's HTML layout.
+* Ran 'sudo cp /var/www/html/index.html /var/www/html/index.html.bak' to create a backup copy of the Apache Default Page.
+* Created basic HTML web page within index file.
+
+* From client, ran 'http://192.168.1.10' again and my web page loaded as expected.
 
