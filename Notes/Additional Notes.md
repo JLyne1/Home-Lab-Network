@@ -41,11 +41,15 @@ Diagnostics -> Backup \& Restore -> Download configuration as XML
 
 * pfSense firewall rules access:
 Firewall -> Rules -> WAN / LAN
-
 * sudo apt update:
 Updates Ubuntu software packages.
 * sudo apt upgrade:
 Installs downloaded software packages.
 
 
+
+###### \# Day 8:
+
+* sudo cp:
+Copies files to another location.
 
