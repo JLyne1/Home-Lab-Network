@@ -19,7 +19,7 @@ To create a working internal network that utilises VMs, routing, and other netwo
 
 
 
-# Project Phases:
+# Project Phases
 ---
 
 1. Basic Network Build:
