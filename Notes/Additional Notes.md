@@ -53,3 +53,14 @@ Installs downloaded software packages.
 * sudo cp:
 Copies files to another location.
 
+
+
+###### \# Day 9:
+
+* sudo usermod -aG wireshark $USER
+usermod - Modifies user account.
+-a - Appends (without removing existing groups).
+-G wireshark - Sets group membership to Wireshark.
+$USER - Designates current user.
+* Wireshark filter - tcp.port == \[portNo]
+
