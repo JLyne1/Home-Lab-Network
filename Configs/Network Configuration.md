@@ -50,7 +50,8 @@
 3. Allow HTTPS (TCP/443)
 4. Allow HTTP (TCP/80)
 5. Allow Internal Traffic (Within subnet)
-6. Block ICMP to Any (Temporary)
-7. Default Allow LAN IPv4 to Any (Disabled)
-8. Default Allow LAN IPv6 to Any (Disabled)
+6. Allow ICMP to Any
+7. Block ICMP to Any (Disabled)
+8. Default Allow LAN IPv4 to Any (Disabled)
+9. Default Allow LAN IPv6 to Any (Disabled)
 
