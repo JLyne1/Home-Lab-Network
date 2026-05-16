@@ -30,8 +30,8 @@ Fullscreen auto-resize working correctly
 * Unable to run 'sudo netplan apply' to apply changes to YAML file.
 * Symptoms:
 
-Error message in Terminal: "Permissions for /etc/netplan/01-network-manager-all.yaml are too open. 
-Netplan configuration should NOT be accessible by others." 
+Error message in Terminal: "Permissions for /etc/netplan/01-network-manager-all.yaml are too open.
+Netplan configuration should NOT be accessible by others."
 Unable to apply changes.
 
 * Cause:
@@ -61,7 +61,7 @@ Selecting 'Reboot' following pfSense installation leads me back to the pfSense i
 
 * Cause:
 
-Not removing the Netgate Installer ISO file from the VM's ISO Image file within VirtualBox. 
+Not removing the Netgate Installer ISO file from the VM's ISO Image file within VirtualBox.
 The VM will boot up the installer image each time it is rebooted.
 
 * Fix:
@@ -91,12 +91,12 @@ The 'curl' command did not come as default with my installation of Linux and mus
 
 * Fix:
 
-Used 'sudo apt update' and 'sudo apt upgrade' to download and install updates. 
+Used 'sudo apt update' and 'sudo apt upgrade' to download and install updates.
 Used 'sudo apt install curl' to install curl functionality.
 
 * Result:
 
-Used 'curl -version' to verify installation. 
+Used 'curl -version' to verify installation.
 Using 'curl google.com' now runs as expected, displaying the HTML information of google.com homepage in the terminal.
 
 
@@ -110,7 +110,7 @@ After attempting 'ping google.com' in the client terminal, terminal responded wi
 
 * Cause:
 
-Temporarily disabling 'Default Allow LAN to Any' rule in the firewall has stopped DNS from resolving. 
+Temporarily disabling 'Default Allow LAN to Any' rule in the firewall has stopped DNS from resolving.
 
 * Fix:
 
@@ -125,6 +125,50 @@ Pinging google.com now resolves, with no packets delivered.
 Using 'curl google.com' returns the HTML file as expected.
 
 
+
+
+
+##### \# Day 9
+
+###### Issue 1:
+
+* Attempted pinging google.com from client VM terminal but packets were dropped following DNS resolution.
+* Symptoms:
+
+After attempting 'ping google.com' in the client terminal, the google.com name was resolved, but terminal responded with '100% packet loss'.
+
+* Cause:
+
+Lack of explicit 'ICMP Allow Any' rule results in an implicit deny of ICMP traffic.
+
+* Fix:
+
+Created a new rule in firewall - 'ICMP Allow Any', which explicitly allows ICMP traffic.
+
+* Result:
+
+Pinging google.com now resolves with 0% packet loss.
+
+
+
+###### Issue 2:
+
+* Attempted pinging google.com from client VM terminal to capture DNS packets in Wireshark, but DNS packets were not appearing in Wireshark.
+* Symptoms:
+
+After attempting 'ping google.com' in the client terminal while Wireshark was filtered to capture DNS packets, no DNS packets were appearing in Wireshark's capture display.
+
+* Cause:
+
+The DNS resolution for google.com was cached by the client, so DNS lookup was not performed by ping.
+
+* Fix:
+
+Run 'nslookup google.com' instead to explicitly request a name resolution from the DNS server.
+
+* Result:
+
+'nslookup google.com' was successful, and Wireshark captured DNS packets for google.com correctly.
 
 
 
