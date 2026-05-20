@@ -23,22 +23,22 @@ To create a working internal network that utilises VMs, routing, and other netwo
 ---
 
 1. Basic Network Build:
-Create a small, isolated internal network of two statically addressed virtual machines.
+Create a small, isolated internal network of two statically addressed virtual machines. ✓
 
 2. Network Control:
-Introduce a pfSense router to manage traffic and enable WAN/LAN separation.
+Introduce a pfSense router to manage traffic and enable WAN/LAN separation. ✓
 
 3. Network Automation:
-Implement DHCP and DNS services for dynamic configuration.
+Implement DHCP and DNS services for dynamic configuration. ✓
 
 4. Firewall and Segmentation:
-Apply firewall rules and segment network traffic for security.
+Apply firewall rules and segment network traffic for security. ✓
 
 5. Service Deployment:
-Deploy web server to simulate application hosting.
+Deploy web server to simulate application hosting. ✓
 
 6. Traffic Analysis:
-Capture and analyse network traffic using Wireshark.
+Capture and analyse network traffic using Wireshark. ✓
 
 7. Troubleshooting:
 Simulate and resolve network issues.
