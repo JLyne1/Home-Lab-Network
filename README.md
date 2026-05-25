@@ -41,10 +41,10 @@ Deploy web server to simulate application hosting. ✓
 Capture and analyse network traffic using Wireshark. ✓
 
 7. Troubleshooting:
-Simulate and resolve network issues.
+Simulate and resolve network issues. ✓
 
 8. Documentation:
-Maintain detailed documentation of design, configuration, and issue troubleshooting.
+Maintain detailed documentation of design, configuration, and issue troubleshooting. ✓
 
 9. Optional Enhancements:
 VPN, VLAN, cloud integration, Infrastructure as Code (IaC) integration.
