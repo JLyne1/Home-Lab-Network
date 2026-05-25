@@ -2,7 +2,7 @@
 
 ###### 
 
-###### \# Day 0 (31/3/26):
+###### \# Day 0 - Installation and Setup:
 
 * Downloaded and installed VirtualBox and GitHub Desktop.
 * Downloaded and installed VirtualBox Extension Pack.
@@ -12,7 +12,7 @@
 
 
 
-###### \# Day 1 (1/4/26):
+###### \# Day 1 - Creating First Virtual Machine:
 
 * Downloaded Ubuntu v24.04.4 LTS .ISO file.
 * Created initial setup of new server VM that runs Ubuntu v24.04.4 LTS. (ubuntu-lab-server)
@@ -33,7 +33,7 @@ Disk: 25GB, dynamically allocated.
 
 
 
-###### \# Day 2 (2/4/26):
+###### \# Day 2 - Creating Second Virtual Machine and LAN Subnet:
 
 * Created initial setup of new client VM that runs Ubuntu v24.04.4 LTS. (ubuntu-lab-client)
 RAM: 4GB.
@@ -89,7 +89,7 @@ Disk: 25GB, dynamically allocated.
 
 
 
-###### \# Day 3 (27/4/26):
+###### \# Day 3 - Testing Subnet:
 
 * Used 'ip route' on both VMs, confirming they are both part of lab-net 192.168.10.0/24.
 * Used 'ping 192.168.10.99' from client, which, as expected, resulted in all packets dropped and "Destination Host Unreachable" error.
@@ -108,7 +108,7 @@ Disk: 25GB, dynamically allocated.
 
 
 
-###### \# Day 4 (29/4/26):
+###### \# Day 4 - Creating and Installing Virtual Router:
 
 * Downloaded Netgate Installer v1.1.1 (pfSense) .ISO file.
 * Created initial setup of new router VM that runs pfSense. (pfsense-lab-router)
@@ -141,7 +141,9 @@ Disk: 16GB, dynamically allocated.
 
 
 
-###### \# Day 5 (4/5/26):
+
+
+###### \# Day 5 - Enabling DNS, DHCP, and Assigning Static IP Address:
 
 * On client, changed the Netplan YAML file to enable DHCP.
 * 'ip a' confirms dynamically assigned IP address of 192.168.1.100/24, from the DHCP address pool.
@@ -151,13 +153,17 @@ Disk: 16GB, dynamically allocated.
 
 
 
-###### \# Day 6 (5/5/26):
+
+
+###### \# Day 6 - Updating Documentation:
 
 * Updated README and Network Configuration files for easier readability.
 
 
 
-###### \# Day 7 (9/5/26):
+
+
+###### \# Day 7 - Enabling Firewall Rules:
 
 * Default Firewall rules for LAN:
 * Anti-Lockout Rule (Ports 80 and 443)
@@ -182,7 +188,9 @@ Disk: 16GB, dynamically allocated.
 
 
 
-###### \# Day 8 (10/5/26):
+
+
+###### \# Day 8 - Deploying Web Server:
 
 * Ran 'sudo apt update' and 'sudo apt upgrade' on server.
 * Ran 'sudo apt install apache2' to install Apache web server.
@@ -202,7 +210,9 @@ Disk: 16GB, dynamically allocated.
 
 
 
-###### \# Day 9 (16/5/26):
+
+
+###### \# Day 9 - Installing and Using Wireshark:
 
 * Ran 'sudo apt install wireshark' on client to install Wireshark.
 * Ran 'sudo usermod -aG wireshark $USER' to add the client's user to Wireshark.
@@ -216,9 +226,55 @@ Disk: 16GB, dynamically allocated.
 
 * Pinging google.com resulted in no DNS packets being captured by Wireshark - See Day 9/Issue 2 in Troubleshooting.
 * After using 'nslookup google.com', Wireshark successfully captured DNS packets.
-
 * Ran 'curl 192.168.1.10' to display Apache server HTML output.
 * Wireshark successfully captured HTTP packets.
 * Ran 'curl https://google.com' to display Google HTML.
 * Wireshark successfully captured encrypted HTTPS packets.
+
+
+
+
+
+###### \# Day 10 - Simulating Failures and Troubleshooting:
+
+* Ran ping, curl, and nslookup tests - All functioning as expected.
+
+
+
+* Edited Netplan YAML file to list unconnected DNS server 10.10.10.10.
+* Ran 'nslookup amazon.com' - Lookup timed out and returned non-authorative response.
+* Wireshark captured outgoing DNS request packets.
+* Deleted new DNS configuration.
+
+
+
+* Edited Netplan YAML file to list default gateway as incorrect address 192.168.1.254.
+* Resulted in no Internet access.
+* nslookup times out.
+* Deleted new default gateway configuration.
+
+
+
+* Added a Block HTTP rule to router firewall.
+* Ran 'curl google.com', which failed as expected.
+* Ran 'ping google.com', which succeeded as expected.
+* Wireshark captured outgoing HTTP request packets.
+* Deleted new Block HTTP rule.
+
+* Ran 'sudo systemctl stop apache2' in server to disable Apache web server.
+* Ran 'curl 192.168.1.10' in client, which failed as expected.
+* Ran 'ping 192.168.1.10' in client, which succeeded as expected.
+* Wireshark captured outgoing HTTP request packets.
+* 'sudo systemctl start apache2' to re-enable Apache.
+* Ran 'systemctl status apache2' to verify Apache status - Active (running).
+
+
+
+
+
+
+
+
+
+
 
