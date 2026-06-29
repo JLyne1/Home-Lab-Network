@@ -260,7 +260,6 @@ Disk: 16GB, dynamically allocated.
 * Ran 'ping google.com', which succeeded as expected.
 * Wireshark captured outgoing HTTP request packets.
 * Deleted new Block HTTP rule.
-
 * Ran 'sudo systemctl stop apache2' in server to disable Apache web server.
 * Ran 'curl 192.168.1.10' in client, which failed as expected.
 * Ran 'ping 192.168.1.10' in client, which succeeded as expected.
@@ -272,9 +271,30 @@ Disk: 16GB, dynamically allocated.
 
 
 
+###### \# Day 11 - Implementing VLAN Segmentation:
+
+* Created new internal networks in VirtualBox - lab-clients and lab-servers.
+* Assigned lab-clients to client and router.
+* Assigned lab-servers to server and router.
+* In router, assigned networks to interfaces.
 
 
 
+* Set lab-clients to 192.168.10.1, and set lab-servers to 192.168.20.1.
+* Statically assigned client VM as 192.168.10.10, with default gateway 192.168.10.1.
+* Successfully pinged 192.168.10.1 from client and connected to Internet.
+* Assigned firewall rules to lab-clients and lab-servers networks.
+* Statically assigned server VM as 192.168.20.10, with default gateway 192.168.20.1.
+* Unable to ping gateway from server - See Day 11/Issue 1 in Troubleshooting.
+* Successfully pinged 192.168.20.1 from server and connected to Internet.
+* Successfully pinged server from client - traffic between new interfaces has been permitted by default.
 
 
+
+* Updated client VLAN with new firewall rules - See Firewall Rules (CLIENTS) in Network Configuration.
+* Ran curl, ping, and ssh commands from client to server - curl was successful; ping and ssh were unsuccessful, all as expected.
+* DNS not resolving correctly in client web browser - See Day 11/Issue 2 in Troubleshooting.
+* DNS now resolving correctly, following update to Netplan.
+* Updated server Netplan to reflect these changes, enabling DNS resolution on the server.
+* Updated client Netplan to turn DHCP back on, removing the static IP address.
 
