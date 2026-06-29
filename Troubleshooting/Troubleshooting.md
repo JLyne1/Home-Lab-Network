@@ -172,3 +172,49 @@ Run 'nslookup google.com' instead to explicitly request a name resolution from t
 
 
 
+
+
+##### \# Day 11
+
+###### Issue 1:
+
+* Attempted pinging default gateway from server VM terminal but packets were dropped, unable to connect.
+* Symptoms:
+
+After attempting 'ping 192.168.20.1' in the server terminal, packets were unable to be sent, resulting in 100% packet loss.
+
+* Cause:
+
+Firewall rules for lab-servers listed lab-clients as the source - a result from me copying the firewall rules from one network to the other without changing the source network.
+
+* Fix:
+
+Changed source network for lab-servers firewall rules to lab-servers instead of lab-clients.
+
+* Result:
+
+Pings to default gateway, and Internet connectivity from server VM are now successful.
+
+
+
+###### Issue 2:
+
+* Connecting to the web browser through a domain name failed.
+* Symptoms:
+
+After attempting to load a web page using a domain name, the page would not resolve. Pinging the domain name in terminal responded with 'Temporary failure in name resolution', meaning DNS was not resolving.
+
+* Cause:
+
+Netplan was referencing an obsolete interface (enp0s3) following changing networks, and no DNS server was configured.
+
+* Fix:
+
+Updated interface to enp0s8 and added nameserver 192.168.10.1, then reapplied Netplan.
+
+* Result:
+
+DNS now resolves, allowing webpages and pings to domain names to load currently.
+
+
+
