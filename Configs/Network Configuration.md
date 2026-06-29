@@ -2,17 +2,17 @@
 
 
 
-###### \# Internal Network
+###### \# Internal Networks
 
-* Hostname: lab-net
-* Subnet: 192.168.1.0/24
+* lab-clients | 192.168.10.0/24
+* lab servers | 192.168.20.0/24
 
 
 
 ###### \# Devices
 
-* ubuntu-lab-server: 192.168.1.10 (Static)
-* ubuntu-lab-client: 192.168.1.20 (DHCP reservation)
+* ubuntu-lab-client: 192.168.10.10 (DHCP Reservation)
+* ubuntu-lab-server: 192.168.20.10 (Static)
 
 
 
@@ -20,14 +20,14 @@
 
 * Hostname: pfsense-lab-router
 * Domain: lab.lan
-* LAN IP: 192.168.1.1 (Default gateway)
+* WAN Address: 10.0.2.15
+* WAN Default Gateway: 10.0.2.2
 
 ###### 
 
 ###### \# DHCP
 
-* DHCP Pool: 192.168.1.100 - 192.168.1.199
-* Reservations: ubuntu-lab-client -> 192.168.1.20
+* lab-clients DHCP Pool: 192.168.10.100 - 192.168.10.199
 
 
 
@@ -39,19 +39,45 @@
 
 \- Secondary: 8.8.8.8
 
-* Resolver: 192.168.1.1 (pfsense-lab-router)
+* lab-clients Resolver: 192.168.10.1
+* lab-servers Resolver: 192.168.20.1
 
 
 
-###### \# Firewall Rules (LAN)
+###### \# Firewall Rules (lab-clients)
 
-1. Anti-Lockout (TCP/80, TCP/443)
-2. Allow DNS (TCP/UDP/53)
-3. Allow HTTPS (TCP/443)
-4. Allow HTTP (TCP/80)
-5. Allow Internal Traffic (Within subnet)
-6. Allow ICMP to Any
-7. Block ICMP to Any (Disabled)
-8. Default Allow LAN IPv4 to Any (Disabled)
-9. Default Allow LAN IPv6 to Any (Disabled)
+
+
+|DESCRIPTION|SOURCE|DESTINATION|PROTOCOL + PORT|
+|-|-|-|-|
+|Anti-Lockout|Any|CLIENTS address|Any/80|
+|Allow DNS|CLIENTS subnets|This Firewall (self)|TCP/UDP/53|
+|Allow HTTP to Apache Server|CLIENTS subnets|192.168.20.10|TCP/80|
+|Block Any to SERVERS|CLIENTS subnets|SERVERS subnets|Any|
+|Allow HTTP to Internet|CLIENTS subnets|Any|TCP/80|
+|Allow HTTPS to Internet|CLIENTS subnets|Any|TCP/443|
+|Allow Internal Traffic|CLIENTS subnets|CLIENTS subnets|Any|
+|Allow Any ICMP|CLIENTS subnets|Any|ICMP|
+|Block Any ICMP \[DISABLED]|CLIENTS subnets|Any|ICMP|
+|Default Allow LAN IPv4 to Any \[DISABLED]|CLIENTS subnets|Any|Any|
+|Default Allow LAN IPv6 to Any \[DISABLED]|CLIENTS subnets|Any|Any|
+
+
+
+###### \# Firewall Rules (lab-servers)
+
+
+
+|Allow DNS|SERVERS subnets|This Firewall (self)|TCP/UDP/53|
+|-|-|-|-|
+|Allow HTTP to Internet|SERVERS subnets|Any|TCP/80|
+|Allow HTTPS to Internet|SERVERS subnets|Any|TCP/443|
+|Allow Any ICMP|SERVERS subnets|Any|ICMP|
+|Block Any to CLIENTS|SERVERS subnets|CLIENTS subnets|Any|
+|Allow Internal Traffic|SERVERS subnets|SERVERS subnets|Any|
+|Block Any ICMP \[DISABLED]|SERVERS subnets|Any|ICMP|
+|Default Allow LAN IPv4 to Any \[DISABLED]|SERVERS subnets|Any|Any|
+|Default Allow LAN IPv6 to Any \[DISABLED]|SERVERS subnets|Any|Any|
+
+
 
