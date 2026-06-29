@@ -47,5 +47,8 @@ Simulate and resolve network issues. ✓
 Maintain detailed documentation of design, configuration, and issue troubleshooting. ✓
 
 9. Optional Enhancements:
-VPN, VLAN, cloud integration, Infrastructure as Code (IaC) integration.
+VPN.
+VLAN (Segmentation using separate VirtualBox Internal Networks). ✓
+Cloud integration.
+Infrastructure as Code (IaC) integration.
 
