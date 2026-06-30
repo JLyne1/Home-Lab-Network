@@ -8,15 +8,11 @@
 
 ## Goal
 
-\---
-
 To create a working internal network that utilises VMs, routing, and other network tools and capabilities.
 
 
 
 ## Tools
-
-\---
 
 * VirtualBox (Virtualisation)
 * pfSense (Routing / firewall)
@@ -26,8 +22,6 @@ To create a working internal network that utilises VMs, routing, and other netwo
 
 
 ## Project Phases
-
-\---
 
 1. Basic Network Build:
 Create a small, isolated internal network of two statically addressed virtual machines. ✓
